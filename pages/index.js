@@ -1,29 +1,30 @@
-import {DatePicker} from 'antd';
 import {Component} from "react";
+import AdminLayout from "../component/Layout/AdminLayout";
 import {FormattedMessage} from "react-intl";
-import Layout from "../component/Layout";
 
+export default class Index extends Component {
 
-class Blog extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            message:""
+        }
     }
 
-    static async getInitialProps(props) {
-        let data = {s: "ss"}
-        return {
-            data
-        }
+    async componentDidMount() {
+        let res = await fetch('http://localhost:3000/json.json')
+        res.json().then((data) => {
+           this.setState({message:data.message})
+        })
     }
 
     render() {
         return (
-            <Layout>
-                <DatePicker/>
-                <FormattedMessage id="help"/>
-            </Layout>
+            <AdminLayout ptitle={<FormattedMessage id="help"/>} ctitle={<FormattedMessage id="help"/>}>
+                <div className="site-layout-background" style={{padding: 24, minHeight: 360}}>
+                    {this.state.message}
+                </div>
+            </AdminLayout>
         )
     }
 }
-
-export default Blog

@@ -3,6 +3,7 @@ import App from 'next/app'
 import {ConfigProvider} from 'antd';
 import {IntlProvider} from "react-intl";
 import 'antd/dist/antd.css';
+import "../public/css/global.css";
 
 import zhCN from "antd/lib/locale-provider/zh_CN";
 import zh from "../public/locales/zh-CN";

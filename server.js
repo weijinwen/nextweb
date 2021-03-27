@@ -9,7 +9,10 @@ const cookieParser = require('cookie-parser');
 
 const language = (req) => {
     let lang_header = req.headers["accept-language"]
-    let lang_header_arr = lang_header.split(',')
+    let lang_header_arr = [];
+    if (lang_header) {
+        lang_header_arr = lang_header.split(',')
+    }
     if (req.cookies.locale_lang) {
         return req.cookies.locale_lang;
     } else if (lang_header_arr.length !== 0) {
