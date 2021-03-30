@@ -1,6 +1,6 @@
 const zh = {
-    help: "幫助",
-    personalCenter: "個人中心",
-    logout: "退出登錄",
+    help: "帮助",
+    personalCenter: "个人中心",
+    logout: "退出登录",
 };
 export default zh;
